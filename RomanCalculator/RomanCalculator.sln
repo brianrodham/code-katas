@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanCalculator", "RomanCalculator.csproj", "{549A7290-82C4-4ED6-B814-32A621F59912}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{549A7290-82C4-4ED6-B814-32A621F59912}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{549A7290-82C4-4ED6-B814-32A621F59912}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{549A7290-82C4-4ED6-B814-32A621F59912}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{549A7290-82C4-4ED6-B814-32A621F59912}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC2684C7-E0D8-4620-AC4A-A6607A2C24DD}
+	EndGlobalSection
+EndGlobal
