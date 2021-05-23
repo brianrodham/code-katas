@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using NUnit.Framework;
 
 namespace mastermind_game
 {
@@ -16,17 +14,18 @@ namespace mastermind_game
     {
 
         private Scorer guesser = new Scorer();
-        const int MAX_GUESSES = 10;
-
+        private SecretFactory secretFactory = new SecretFactory();
         private int guessCount = 0;
-        private List<string> secret = new List<string>();
         private GameState state = GameState.NotStarted;
 
-        public void SetSecret(List<string> newSecret)
+        const int MAX_GUESSES = 10;
+        private List<string> secret { get; set; }
+
+        public void StartGame(List<string> presetSecret = null)
         {
             state = GameState.InProgress;
             guessCount = 0;
-            secret = newSecret.Select(x => x.ToLower()).ToList();
+            secret = presetSecret ?? secretFactory.GenerateSecret();
         }
 
         public GameState Guess(List<string> guess)

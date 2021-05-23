@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace mastermind_game
@@ -40,7 +41,7 @@ namespace mastermind_game
         [TestCase("red,green,green,purple", "green,green,green,green", GameState.GameOver, 11, Description = "Test that it sets state to game over on > 10 guesses")]
         [TestCase("red,green,green,purple", "green,green,green,green", GameState.InProgress, 1, Description = "Test that state is set to in progress after first incorrect guess")]
         [TestCase("red,green,green,purple", "green,green,green,green", GameState.InProgress, 9, Description = "Test that state is set to in progress after 9th incorrect guess")]
-        public void TestGameStateAfterGuessing(string secretString, string guessString, GameState state, int loopCount)
+        public void ItShouldSetTheRightGameStateAfterGuessing(string secretString, string guessString, GameState state, int loopCount)
         {
 
             var secret = secretString.Split(',').ToList();
@@ -49,7 +50,7 @@ namespace mastermind_game
             var mastermind = new Mastermind();
             if (secretString != "")
             {
-                mastermind.SetSecret(secret);
+                mastermind.StartGame(secret);
             }
             var result = GameState.InProgress;
             for (int i = 0; i < loopCount; i++)
@@ -57,6 +58,19 @@ namespace mastermind_game
                 result = mastermind.Guess(guess);
             }
             Assert.That(result, Is.EqualTo(state));
+        }
+    }
+
+    public class SecretFactoryTests
+    {
+        [Test]
+        public void ItShouldGenerateASecret()
+        {
+            var secretFactory = new SecretFactory();
+
+            var secret = secretFactory.GenerateSecret();
+
+            Assert.That(secret.Count, Is.EqualTo(4));
         }
     }
 
